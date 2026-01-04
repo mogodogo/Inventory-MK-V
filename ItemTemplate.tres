@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cxr3qyhoxlhqs"]
+
+[ext_resource type="Script" uid="uid://p0qdp0oqsunt" path="res://ItemTemplate.gd" id="1_uw3iv"]
+
+[resource]
+script = ExtResource("1_uw3iv")
+Name = "ERROR"
+Size = Vector2i(2, 2)

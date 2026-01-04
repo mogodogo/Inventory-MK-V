@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5rfxy62u8ot3"]
+
+[ext_resource type="Script" uid="uid://csmff4fc6mgfp" path="res://tiled_item_container.gd" id="1_471gj"]
+
+[node name="TiledItemContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_471gj")
+Size = Vector2i(1, 0)

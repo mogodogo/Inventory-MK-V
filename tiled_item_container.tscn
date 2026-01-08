@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://csmff4fc6mgfp" path="res://tiled_item_container.gd" id="1_471gj"]
 
 [node name="TiledItemContainer" type="PanelContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 25.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 100.0
+offset_bottom = 100.0
 script = ExtResource("1_471gj")
-Size = Vector2i(1, 0)
+Size = Vector2i(4, 4)
+
+[node name="DisplaysContainer" type="Control" parent="."]
+layout_mode = 2

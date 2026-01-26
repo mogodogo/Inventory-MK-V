@@ -11,6 +11,9 @@ var ItemRepresentation : Item:
 		$Label.visible = value.Stack != 1
 		$Label.text = str(value.Stack)
 
+func DisplayItem(ItemImage : Item) -> void:
+	texture_normal = ItemImage.GetDisplay()
+
 static func NewDisplay(Representation : Item) -> ItemDisplay:
 	var display : ItemDisplay = SceneReference.instantiate()
 	display.ItemRepresentation = Representation

@@ -4,24 +4,17 @@ extends Control
 
 var Inventory : Array[ItemData]
 
+enum ReturnType {Successful, CollidingError, BoundingError}
+
 @abstract
 class ItemData:
 	var resource : Item
+#Crud System Create Read Update Delete
+@abstract
+func AddItem(AddedItem : ItemData) -> ReturnType
 
 @abstract
-func AddItem(AddedItem : ItemData) -> void
+func RemoveItem(RemovedItem : ItemData) -> ReturnType
 
 @abstract
-func RemoveItem(RemovedItem : ItemData) -> void
-
-@abstract
-func EditItem(EditedItem : ItemData) -> void
-
-@abstract
-func CanAddItem(AddedItem : ItemData) -> bool
-
-@abstract
-func CanRemoveItem(RemovedItem : ItemData) -> bool
-
-@abstract
-func CanEditItem(EditedItem : ItemData) -> bool
+func EditItem(EditedItem : ItemData, ItemEditData : ItemData) -> ReturnType

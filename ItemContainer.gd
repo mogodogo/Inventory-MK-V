@@ -27,9 +27,9 @@ func MoveItem(MovedItem : ItemData, TargetContainer : ItemContainer):
 		else:
 			AddItem(MovedItemLocal)
 
-func EditItem(EditedItem : ItemData, ItemEditData : ItemData):
-	if RemoveItem(EditedItem) == ReturnType.Successful:
-		if AddItem(ItemEditData) == ReturnType.Successful:
-			AddItem(ItemEditData)
-		else:
+func EditItem(UneditedItem : ItemData, EditedItem : ItemData):
+	if RemoveItem(UneditedItem) == ReturnType.Successful:
+		if AddItem(EditedItem) == ReturnType.Successful:
 			AddItem(EditedItem)
+		else:
+			AddItem(UneditedItem)

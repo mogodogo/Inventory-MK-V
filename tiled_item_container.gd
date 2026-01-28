@@ -12,12 +12,20 @@ extends ItemContainer
 
 class TileItemData extends ItemData:
 	var Position : Vector2i
+	var Display : ItemDisplay
 	func GetRect() -> Rect2i:
 		return Rect2i(Position, resource.Size)
+	func _init(item : Item, pos : Vector2i) -> void:
+		resource = item
+		Position = pos
 
 var RectBox : Rect2i
 
-##add item both adds and checks if it can add an item, be careful whilst using it to avoid unforseen consequences
+func _ready() -> void:
+	AddItem(TileItemData.new(load("uid://p5yndwyaw07m"), Vector2i.ZERO))
+	RemoveItem(Inventory[0])
+
+#add item both adds and checks if it can add an item, be careful whilst using it to avoid unforseen consequences
 #use like so
 #match AddItem(item):
 # ItemContainer.Returntype.BoundingError:
@@ -33,17 +41,20 @@ func AddItem(AddedItem : ItemData) -> ReturnType:
 		if AddedCollider.intersects(item.GetRect()) and not AddedCollider.encloses(item.GetRect()):
 			return ReturnType.CollidingError
 	#pushes the item into the inventory array, then instanciates a child display
+	
+	var LocalDisplay : ItemDisplay = ItemDisplay.NewDisplay(AddedItem.resource)
+	AddedItem.Display = LocalDisplay
+	DisplayContainer.add_child(LocalDisplay)
 	Inventory.push_back(AddedItem)
-	DisplayContainer.add_child(ItemDisplay.NewDisplay(AddedItem.resource))
 	return ReturnType.Successful
 
 func RemoveItem(RemovedItem : ItemData) -> ReturnType:
 	assert(RemovedItem is TileItemData)
-	
+	RemovedItem.Display.queue_free()
 	Inventory.erase(RemovedItem)
 	return ReturnType.Successful
 
-func EditItem(EditedItem : ItemData, ItemEditData : ItemData) -> ReturnType:
-	assert(EditedItem is TileItemData)
-	assert(ItemEditData is TileItemData)
-	return ReturnType.Successful
+#func EditItem(EditedItem : ItemData, ItemEditData : ItemData) -> ReturnType:
+	#assert(EditedItem is TileItemData)
+	#assert(ItemEditData is TileItemData)
+	#return ReturnType.Successful

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqxuytvnyim0k" path="res://item_display.gd" id="1_x8nve"]
 
-[node name="ItemDisplay" type="TextureButton"]
+[node name="TileItemDisplay" type="TextureButton"]
 offset_right = 40.0
 offset_bottom = 40.0
 button_mask = 5

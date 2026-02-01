@@ -42,7 +42,7 @@ func AddItem(AddedItem : ItemData) -> ReturnType:
 			return ReturnType.CollidingError
 	#pushes the item into the inventory array, then instanciates a child display
 	
-	var LocalDisplay : ItemDisplay = ItemDisplay.NewDisplay(AddedItem.resource)
+	var LocalDisplay : ItemDisplay = ItemDisplay.NewDisplay(AddedItem.resource, true)
 	AddedItem.Display = LocalDisplay
 	DisplayContainer.add_child(LocalDisplay)
 	Inventory.push_back(AddedItem)
@@ -53,8 +53,3 @@ func RemoveItem(RemovedItem : ItemData) -> ReturnType:
 	RemovedItem.Display.queue_free()
 	Inventory.erase(RemovedItem)
 	return ReturnType.Successful
-
-#func EditItem(EditedItem : ItemData, ItemEditData : ItemData) -> ReturnType:
-	#assert(EditedItem is TileItemData)
-	#assert(ItemEditData is TileItemData)
-	#return ReturnType.Successful

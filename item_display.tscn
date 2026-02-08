@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://gw3bovclhibo"]
+[gd_scene format=3 uid="uid://gw3bovclhibo"]
 
 [ext_resource type="Script" uid="uid://bqxuytvnyim0k" path="res://item_display.gd" id="1_x8nve"]
+[ext_resource type="Texture2D" uid="uid://o1dqklrvwqnx" path="res://Glock-pistol.webp" id="1_xqf7d"]
 
-[node name="TileItemDisplay" type="TextureButton"]
-offset_right = 40.0
-offset_bottom = 40.0
-button_mask = 5
+[node name="TileItemDisplay" type="TextureButton" unique_id=507846834]
+offset_right = 1600.0
+offset_bottom = 1123.0
+texture_normal = ExtResource("1_xqf7d")
+ignore_texture_size = true
+stretch_mode = 5
 script = ExtResource("1_x8nve")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2059893500]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

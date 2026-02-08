@@ -2,21 +2,20 @@
 class_name ItemDisplay
 extends TextureButton
 
-var SetSize : bool
-const Scene : PackedScene = preload("uid://b5rfxy62u8ot3")
+const Scene : PackedScene = preload("uid://gw3bovclhibo")
 
+var ItemRepresentation : Item
 
-var ItemRepresentation : Item:
-	set(value):
-		if SetSize:
-			size = Item.GridToPosition(value.Size)
-		texture_normal = value.GetDisplay()
-		ItemRepresentation = value
-		$Label.visible = value.Stack != 1
-		$Label.text = str(value.Stack)
+func SetDisplay(Representation : Item) -> void:
+	assert(Representation)
+	texture_normal = Representation.GetDisplay()
+	ItemRepresentation = Representation
+	$Label.visible = Representation.Stack != 1
+	$Label.text = str(Representation.Stack)
 
-static func NewDisplay(Representation : Item, Size : bool) -> ItemDisplay:
+static func NewDisplay(Representation : Item, Size : Vector2) -> ItemDisplay:
 	var display : ItemDisplay = Scene.instantiate()
-	display.SetSize = Size
+	display.size = Size
 	display.ItemRepresentation = Representation
+	display.SetDisplay(Representation)
 	return display

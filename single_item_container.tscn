@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://w3m5d0gvfy6m"]
+[gd_scene format=3 uid="uid://w3m5d0gvfy6m"]
 
 [ext_resource type="Script" uid="uid://b1ubhafluoueq" path="res://single_item_container.gd" id="1_0c3k7"]
 
-[node name="SingleItemContainer" type="PanelContainer"]
+[node name="SingleItemContainer" type="PanelContainer" unique_id=1555752841]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_0c3k7")

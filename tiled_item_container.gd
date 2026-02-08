@@ -4,11 +4,13 @@ extends ItemContainer
 
 @export var Size : Vector2i: 
 	set(value):
-		size = Item.GridToPosition(value)
+		size = Tile.GridToPosition(value)
 		RectBox = Rect2i(Vector2i.ZERO, value)
 		Size = value
 
 @onready var DisplayContainer : Control = $DisplaysContainer
+
+
 
 class TileItemData extends ItemData:
 	var Position : Vector2i
@@ -23,7 +25,7 @@ var RectBox : Rect2i
 
 func _ready() -> void:
 	AddItem(TileItemData.new(load("uid://p5yndwyaw07m"), Vector2i.ZERO))
-	RemoveItem(Inventory[0])
+
 
 #add item both adds and checks if it can add an item, be careful whilst using it to avoid unforseen consequences
 #use like so
@@ -42,9 +44,8 @@ func AddItem(AddedItem : ItemData) -> ReturnType:
 			return ReturnType.CollidingError
 	#pushes the item into the inventory array, then instanciates a child display
 	
-	var LocalDisplay : ItemDisplay = ItemDisplay.NewDisplay(AddedItem.resource, true)
-	AddedItem.Display = LocalDisplay
-	DisplayContainer.add_child(LocalDisplay)
+	AddedItem.Display = ItemDisplay.NewDisplay(AddedItem.resource, Tile.GridToPosition(AddedItem.resource.Size))
+	DisplayContainer.add_child(AddedItem.Display)
 	Inventory.push_back(AddedItem)
 	return ReturnType.Successful
 

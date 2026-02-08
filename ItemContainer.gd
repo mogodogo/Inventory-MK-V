@@ -4,7 +4,7 @@ extends Control
 
 var Inventory : Array[ItemData]
 
-enum ReturnType {Successful, CollidingError, BoundingError}
+enum ReturnType {Successful, CollidingError, BoundingError, StackError}
 
 @abstract
 class ItemData:

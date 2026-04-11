@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ItemTemplate" load_steps=3 format=3 uid="uid://p5yndwyaw07m"]
+[gd_resource type="Resource" script_class="ItemTemplate" format=3 uid="uid://p5yndwyaw07m"]
 
 [ext_resource type="Texture2D" uid="uid://o1dqklrvwqnx" path="res://Glock-pistol.webp" id="1_1k12x"]
-[ext_resource type="Script" uid="uid://p0qdp0oqsunt" path="res://ItemTemplate.gd" id="1_sjbqq"]
+[ext_resource type="Script" uid="uid://p0qdp0oqsunt" path="res://Base Items/ItemTemplate.gd" id="1_sjbqq"]
 
 [resource]
 script = ExtResource("1_sjbqq")
